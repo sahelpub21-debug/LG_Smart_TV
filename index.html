@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Study — LG « Complexité, dégage ! » — webOS Smart TV (Maroc)</title>
+  <meta name="description" content="Lancement des Smart TV LG sous webOS au Maroc — campagne 360° centrée sur la simplicité. Stratégie, idée créative, exécution (digital, RP, street marketing, achat média presse & OOH 4x3) et résultats." />
+  <style>
+    /* Reset & tokens */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+    :root{
+      --ink:#2b0a12; --muted:#6a6166; --bg:#fff7f9; --card:#ffffff; --line:#e6eaf1; 
+      --brand:#e60012; /* legacy */ --lg-red:#A50034; --lg-red-dark:#7a0026;
+      --accent: var(--lg-red); --ok: var(--lg-red);
+      --radius:18px; --shadow: 0 8px 24px rgba(8,15,35,.08);
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{ max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+    /* Hero */
+    .hero{ background: linear-gradient(135deg, var(--lg-red), var(--lg-red-dark) 60%, #3a0013); color: #fff; padding: 56px 24px; border-bottom: 1px solid #0f1a33; }
+    .hero .wrap{ padding-top: 8px; padding-bottom: 8px; }
+    .title{ font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .subtitle{ font-size: clamp(16px,2.2vw,20px); color: #ffd6e0; margin: 0 0 16px;  margin: 0 0 16px; }
+    .badges{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge{ background: rgba(255,255,255,.12); color:#fff; padding: 6px 10px; border-radius: 999px; font-size: 12px; border: 1px solid rgba(255,255,255,.18); }
+
+    /* Cards & layout */
+    .grid{ display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 920px){ .grid{ grid-template-columns: 1.1fr .9fr; } }
+    .card{ background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .card h3{ margin: 0 0 8px; font-size: 20px; }
+    .muted{ color: var(--muted); }
+    .list{ padding-left: 18px; }
+
+    /* KPI pills */
+    .kpis{ display:grid; grid-template-columns: repeat(2,1fr); gap:12px; margin-top: 10px; }
+    @media(min-width:640px){ .kpis{ grid-template-columns: repeat(4,1fr);} }
+    .kpi{ background: var(--lg-red); color:#fff; border-radius: 14px; padding: 14px; border:1px solid var(--lg-red-dark); }
+    .kpi b{ display:block; font-size: 18px; margin-bottom:2px; }
+    .kpi span{ font-size:12px; color:#93a5d6; }
+
+    /* Quote */
+    .quote{ background:#fff1f4; color:#5a1e2b; border-left: 4px solid var(--lg-red); border-radius: 14px; padding: 18px; }
+
+    /* Slider */
+    .slider{ position: relative; overflow: hidden; background:#2b0010; border-radius: var(--radius); border:1px solid #3a0013;  border-radius: var(--radius); border:1px solid #1f2937; }
+    .slider-track{ display:flex; transition: transform .6s ease; }
+    .slide{ min-width: 100%; display:flex; align-items:center; justify-content:center; background:#000; }
+    .slide img{ width: 100%; height: clamp(220px, 40vw, 420px); object-fit: contain; background: #000; pointer-events: none; user-select: none; }
+    .slider .nav{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding: 0 8px; pointer-events: none; }
+    .slider button{ pointer-events:auto; width:42px; height:42px; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); color:#fff; display:grid; place-items:center; font-size:18px; cursor:pointer; backdrop-filter: blur(6px); }
+    .slider button:hover{ background: rgba(255,255,255,.18); }
+    .dots{ position:absolute; left:50%; transform:translateX(-50%); bottom:10px; display:flex; gap:6px; }
+    .dots button{ width:8px; height:8px; border-radius:999px; border:none; background:rgba(255,255,255,.35); cursor:pointer; }
+    .dots button.active{ background:#fff; }
+
+    /* Footer */
+    footer{ text-align:center; color:var(--muted); padding: 28px 0 40px; }
+      /* Hero two-up placeholders */
+    .hero-duo{ margin-top: 20px; display:grid; gap:12px; grid-template-columns: 1fr; }
+    .hero-duo .ph{ background: #fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    .hero-duo img{ width:100%; height: clamp(140px, 24vw, 240px); object-fit: cover; display:block; }
+    @media (min-width: 680px){ .hero-duo{ grid-template-columns: 1fr 1fr; } }
+      /* Mega banner under header (LG colors) */
+    .mega-banner{ margin:16px 0 24px; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line); }
+    .mega-banner .ph{ height: clamp(160px, 28vw, 360px); background: linear-gradient(135deg, var(--lg-red) 0%, var(--lg-red-dark) 60%, #3a0013 100%); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; letter-spacing:.02em; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1 class="title">LG — « Complexité, dégage ! »</h1>
+      <p class="subtitle">Lancement des Smart TV LG sous <b>webOS</b> (Maroc, 2014) — <b>campagne 360°</b> centrée sur la simplicité d’usage.</p>
+      <div class="badges">
+        <span class="badge">Stratégie & Direction de campagne</span>
+        <span class="badge">Digital & Social</span>
+        <span class="badge">Relations Presse</span>
+        <span class="badge">Street Marketing</span>
+        <span class="badge">Achat média presse</span>
+        <span class="badge">OOH 4×3</span>
+        <span class="badge">Coordination prod</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="mega-banner" aria-label="Visuels de campagne (slider)">
+      <div class="slider" id="slider">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Remplacez les src par vos visuels hébergés (ex : /assets/lg-1.jpg ...) -->
+          <div class="slide"><img alt="Teasing — Complexité, dégage !" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#111'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Teasing</text></svg>')}"/></div>
+          <div class="slide"><img alt="Reveal webOS" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#0b1220'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#c7d2fe\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Reveal</text></svg>')}"/></div>
+          <div class="slide"><img alt="Street marketing" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#051019'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#e5e7eb\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Street</text></svg>')}"/></div>
+          <div class="slide"><img alt="OOH 4x3" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#000'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'46\' font-family=\'Arial\'>Placeholder • OOH 4x3</text></svg>')}"/></div>
+          <div class="slide"><img alt="Presse & RP" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#0f172a'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#93c5fd\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Presse/RP</text></svg>')}"/></div>
+        </div>
+        <div class="nav">
+          <button type="button" aria-label="Slide précédent" id="prev">&#10094;</button>
+          <button type="button" aria-label="Slide suivant" id="next">&#10095;</button>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+    </section>
+    <section class="grid" aria-label="Résumé">
+      <article class="card">
+        <h3>Contexte & Défi</h3>
+        <p class="muted">Dans les années qui suivent les révolutions arabes, le débat public est imprégné d’un lexique de contestation. Sur le marché, les Smart TV existent mais l’<b>expérience utilisateur</b> reste perçue comme <b>trop compliquée</b>, ce qui freine l’adoption des fonctionnalités avancées.</p>
+        <ul class="list">
+          <li><b>Défi</b> : rendre tangible la <b>simplicité</b> de webOS pour le grand public.</li>
+          <li><b>Objectif</b> : émerger rapidement en earned & paid media, et positionner LG comme <b>le choix simple</b>.</li>
+          <li><b>Marché</b> : Maroc — lancement des gammes 4K sous webOS.</li>
+        </ul>
+      </article>
+      <aside class="card">
+        <h3>Rôles clés (perso)</h3>
+        <ul class="list">
+          <li>Lead stratégie & message (« Simplicité » comme promesse unique).</li>
+          <li>Coordination 360 : digital/social, RP & presse, street marketing, OOH 4×3, achat presse.</li>
+          <li>Gestion du teasing « Complexité, dégage ! » et du reveal produit webOS.</li>
+          <li>Orchestration des prestataires : créa, prod, média, terrain.</li>
+        </ul>
+      </aside>
+    </section>
+    <section class="card" aria-label="Idée">
+      <h3>Idée & Positionnement</h3>
+      <p>Nous détournons un <b>mot d’ordre populaire</b> (« Dégage ») en <b>métaphore</b> d’une révolution utile : faire sortir la <b>complexité</b> des salons. Le cri devient : <b>« Complexité, dégage ! »</b> — et la solution s’appelle <b>webOS</b> : un ruban ludique, une navigation claire, et une TV réellement simple.</p>
+      <div class="quote">« Make TV simple again » à l’international ; au Maroc, nous ancrons la promesse dans le contexte culturel tout en posant des <b>garde‑fous</b> (no politique, focus usage, ton positif et inclusif).</div>
+      <div class="hero-duo" aria-label="Référence & inspiration (placeholders)">
+        <figure class="ph">
+          <img alt="Photo de manifestation — Placeholder" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><defs><linearGradient id=\'g\' x1=\'0\' y1=\'0\' x2=\'1\' y2=\'1\'><stop offset=\'0\' stop-color=\'#333'/><stop offset=\'1\' stop-color=\'#111\'/></linearGradient></defs><rect width=\'100%\' height=\'100%\' fill=\'url(#g)\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'34\' font-family=\'Arial\'>Placeholder • Manif</text></svg>')}"/>
+        </figure>
+        <figure class="ph">
+          <img alt="Visuel LG inspiré — Placeholder" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#A50034\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#ffe1e8\' font-size=\'34\' font-family=\'Arial\'>Placeholder • Visuel LG</text></svg>')}"/>
+        </figure>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Exécution">
+      <article class="card">
+        <h3>Exécution 360°</h3>
+        <ul class="list">
+          <li><b>Teasing urbain</b> : affichage et activations terrain autour du slogan, pré‑révélation sans marque.</li>
+          <li><b>Reveal produit</b> : webOS en démonstration — vidéos courtes, carrousel des fonctionnalités, landing explicative.</li>
+          <li><b>Digital & Social</b> : séquences snack (how‑to), formats carrousel, UGC « avant/après » simplicité.</li>
+          <li><b>Relations Presse</b> : media kit, sessions démo, tribunes « simplicité utile ».</li>
+          <li><b>OOH 4×3 & Presse</b> : couverture à forte répétition sur axes premium + insertions presse ciblées.</li>
+          <li><b>Street marketing</b> : démos mobiles, distribution de <i>cheat‑sheets</i> webOS, collecte de feedback.</li>
+        </ul>
+      </article>
+      <aside class="card">
+        <h3>Brand Safety & Sensibilités</h3>
+        <ul class="list">
+          <li>Référence culturelle <b>symbolique</b>, sans récupération politique.</li>
+          <li>Visuels neutres, langage non‑confrontationnel.</li>
+          <li>Focus bénéfices concrets : rapidité, clarté, navigation.</li>
+          <li>Validation juridique & conformité avant diffusion.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card" aria-label="KPI">
+      <h3>Résultats (sélection)</h3>
+      <div class="kpis">
+        <div class="kpi"><b>TBD</b><span>Reach cumulé (paid + earned)</span></div>
+        <div class="kpi"><b>TBD</b><span>Incrément de notoriété « simplicité »</span></div>
+        <div class="kpi"><b>TBD</b><span>CTR moyen des formats digitaux</span></div>
+        <div class="kpi"><b>TBD</b><span>Ventes / visites en magasin (uplift)</span></div>
+      </div>
+      <p class="muted" style="margin-top:10px">Remplacer « TBD » par vos chiffres (ou garder une formulation qualitative).</p>
+    </section>
+
+    
+
+    <section class="grid" aria-label="Détails"></section>
+
+    <section class="grid" aria-label="Détails">
+      <article class="card">
+        <h3>Plan média (synthèse)</h3>
+        <ul class="list">
+          <li><b>OOH :</b> réseau 4×3 en forte répétition (axes premium urbains).</li>
+          <li><b>Presse :</b> insertions sélectives (affinité tech/consumer, lancement).</li>
+          <li><b>Digital :</b> social ads, prerolls, formats carrousel & stories.</li>
+          <li><b>Terrain :</b> activations ciblées & démonstrations webOS.</li>
+        </ul>
+      </article>
+      <aside class="card">
+        <h3>Livrables (ex.)</h3>
+        <ul class="list">
+          <li>Message house « Simplicité utile ».</li>
+          <li>Kit RP (communiqué, visuels, Q&A, démo).</li>
+          <li>Assets digitaux modulaires (vidéos courtes, carrousels, bannières).</li>
+          <li>Toolkit terrain (cheat‑sheets, scripts d’animation, feedback form).</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card" aria-label="Crédits">
+      <h3>Crédits & Partenaires</h3>
+      <p class="muted">Client : LG Electronics Maroc — Coordination avec équipes LG globales (webOS). Agence(s) & prestataires : création, production, média, terrain (coordination centrale assurée).</p>
+    </section>
+
+    <footer>
+      <p>Portfolio — Étude de cas par Zakaria Gallouch • <a href="#top">Retour en haut</a></p>
+    </footer>
+  </main>
+
+  <script>
+    // Slider minimal, images non cliquables, défilement horizontal auto + flèches + dots + tactile
+    (function(){
+      const track = document.getElementById('sliderTrack');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      const dotsWrap = document.getElementById('dots');
+      const slides = Array.from(track.children);
+      let index = 0;
+      let timer; const AUTO_MS = 4500; // vitesse "normale"
+
+      function go(i){
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(${-index * 100}%)`;
+        updateDots();
+      }
+      function next(){ go(index + 1); }
+      function prev(){ go(index - 1); }
+      function play(){ stop(); timer = setInterval(next, AUTO_MS); }
+      function stop(){ if(timer) clearInterval(timer); }
+
+      // Dots
+      slides.forEach((_, i)=>{
+        const b = document.createElement('button');
+        b.addEventListener('click', ()=>{ go(i); play(); });
+        dotsWrap.appendChild(b);
+      });
+      function updateDots(){
+        dotsWrap.querySelectorAll('button').forEach((b, i)=>{
+          b.classList.toggle('active', i === index);
+        });
+      }
+
+      // UI events
+      nextBtn.addEventListener('click', ()=>{ next(); play(); });
+      prevBtn.addEventListener('click', ()=>{ prev(); play(); });
+
+      // Pause on hover (desktop)
+      const slider = document.getElementById('slider');
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', play);
+
+      // Swipe (mobile)
+      let startX = 0, deltaX = 0;
+      slider.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; deltaX = 0; stop(); }, {passive:true});
+      slider.addEventListener('touchmove', (e)=>{ deltaX = e.touches[0].clientX - startX; }, {passive:true});
+      slider.addEventListener('touchend', ()=>{ if(Math.abs(deltaX) > 40){ deltaX < 0 ? next() : prev(); } play(); });
+
+      // Keyboard support
+      document.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); });
+
+      // Init
+      go(0); play();
+    })();
+  </script>
+</body>
+</html>
