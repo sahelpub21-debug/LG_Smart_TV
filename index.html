@@ -46,16 +46,16 @@
     .quote{ background:#fff1f4; color:#5a1e2b; border-left: 4px solid var(--lg-red); border-radius: 14px; padding: 18px; }
 
     /* Slider */
-    .slider{ position: relative; overflow: hidden; background:#2b0010; border-radius: var(--radius); border:1px solid #3a0013;  border-radius: var(--radius); border:1px solid #1f2937; }
+    .slider{ position:relative; overflow:hidden; background:#ffffff; border-radius: var(--radius); border:1px solid var(--line); box-shadow: 0 6px 24px rgba(10,10,10,.05); }
     .slider-track{ display:flex; transition: transform .6s ease; }
     .slide{ min-width: 100%; display:flex; align-items:center; justify-content:center; background:#000; }
-    .slide img{ width: 100%; height: clamp(220px, 40vw, 420px); object-fit: contain; background: #000; pointer-events: none; user-select: none; }
+    .slide img{ width: 100%; height: clamp(220px, 40vw, 420px); object-fit: contain; background: #fff; pointer-events: none; user-select: none; }
     .slider .nav{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding: 0 8px; pointer-events: none; }
-    .slider button{ pointer-events:auto; width:42px; height:42px; border-radius:999px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); color:#fff; display:grid; place-items:center; font-size:18px; cursor:pointer; backdrop-filter: blur(6px); }
-    .slider button:hover{ background: rgba(255,255,255,.18); }
+    .slider button{ pointer-events:auto; width:42px; height:42px; border-radius:999px; border:1px solid rgba(0,0,0,.15); background:rgba(0,0,0,.06); color:#0b1220; display:grid; place-items:center; font-size:18px; cursor:pointer; backdrop-filter: blur(6px); }
+    .slider button:hover{ background: rgba(0,0,0,.12); }
     .dots{ position:absolute; left:50%; transform:translateX(-50%); bottom:10px; display:flex; gap:6px; }
-    .dots button{ width:8px; height:8px; border-radius:999px; border:none; background:rgba(255,255,255,.35); cursor:pointer; }
-    .dots button.active{ background:#fff; }
+    .dots button{ width:8px; height:8px; border-radius:999px; border:none; background:rgba(0,0,0,.25); cursor:pointer; }
+    .dots button.active{ background:#0b1220; }
 
     /* Footer */
     footer{ text-align:center; color:var(--muted); padding: 28px 0 40px; }
@@ -67,6 +67,16 @@
       /* Mega banner under header (LG colors) */
     .mega-banner{ margin:16px 0 24px; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line); }
     .mega-banner .ph{ height: clamp(160px, 28vw, 360px); background: linear-gradient(135deg, var(--lg-red) 0%, var(--lg-red-dark) 60%, #3a0013 100%); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; letter-spacing:.02em; }
+      /* Results — modern stats */
+    .results h3{ display:flex; align-items:center; gap:10px; }
+    .stats{ display:grid; grid-template-columns: repeat(2,1fr); gap:12px; margin-top:12px; }
+    @media(min-width:860px){ .stats{ grid-template-columns: repeat(4,1fr);} }
+    .stat{ position:relative; background:#ffffff; border:1px solid #f1d9e1; border-radius:16px; padding:16px; box-shadow: 0 4px 16px rgba(165,0,52,.06); }
+    .stat::after{ content:""; position:absolute; inset:0; border-radius:16px; pointer-events:none; background: linear-gradient(180deg, rgba(165,0,52,.10), transparent 35%, transparent); opacity:.35; }
+    .stat .value{ font-size: clamp(18px, 2.2vw, 22px); font-weight:800; letter-spacing:-.01em; color:#2b0a12; }
+    .stat .label{ margin-top:4px; font-size:12px; color:#6a6166; }
+    .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .tag{ font-size:11px; padding:4px 8px; background:#fff1f4; color:#5a1e2b; border:1px solid #f1d9e1; border-radius:999px; }
   </style>
 </head>
 <body>
@@ -90,12 +100,10 @@
     <section class="mega-banner" aria-label="Visuels de campagne (slider)">
       <div class="slider" id="slider">
         <div class="slider-track" id="sliderTrack">
-          <!-- Remplacez les src par vos visuels hébergés (ex : /assets/lg-1.jpg ...) -->
-          <div class="slide"><img alt="Teasing — Complexité, dégage !" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#111'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Teasing</text></svg>')}"/></div>
-          <div class="slide"><img alt="Reveal webOS" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#0b1220'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#c7d2fe\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Reveal</text></svg>')}"/></div>
-          <div class="slide"><img alt="Street marketing" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#051019'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#e5e7eb\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Street</text></svg>')}"/></div>
-          <div class="slide"><img alt="OOH 4x3" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#000'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'46\' font-family=\'Arial\'>Placeholder • OOH 4x3</text></svg>')}"/></div>
-          <div class="slide"><img alt="Presse & RP" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#0f172a'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#93c5fd\' font-size=\'46\' font-family=\'Arial\'>Placeholder • Presse/RP</text></svg>')}"/></div>
+          <div class="slide"><img alt="LG webOS – visuel 1" src="https://i.imgur.com/uUoOBwU.jpg"/></div>
+          <div class="slide"><img alt="LG webOS – visuel 2" src="https://i.imgur.com/hiDR8EI.jpg"/></div>
+          <div class="slide"><img alt="LG webOS – visuel 3" src="https://i.imgur.com/gtlU72q.jpg"/></div>
+          <div class="slide"><img alt="LG webOS – visuel 4" src="https://i.imgur.com/1o6N4L4.jpg"/></div>
         </div>
         <div class="nav">
           <button type="button" aria-label="Slide précédent" id="prev">&#10094;</button>
@@ -128,12 +136,12 @@
       <h3>Idée & Positionnement</h3>
       <p>Nous détournons un <b>mot d’ordre populaire</b> (« Dégage ») en <b>métaphore</b> d’une révolution utile : faire sortir la <b>complexité</b> des salons. Le cri devient : <b>« Complexité, dégage ! »</b> — et la solution s’appelle <b>webOS</b> : un ruban ludique, une navigation claire, et une TV réellement simple.</p>
       <div class="quote">« Make TV simple again » à l’international ; au Maroc, nous ancrons la promesse dans le contexte culturel tout en posant des <b>garde‑fous</b> (no politique, focus usage, ton positif et inclusif).</div>
-      <div class="hero-duo" aria-label="Référence & inspiration (placeholders)">
+      <div class="hero-duo" aria-label="Référence & inspiration">
         <figure class="ph">
-          <img alt="Photo de manifestation — Placeholder" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><defs><linearGradient id=\'g\' x1=\'0\' y1=\'0\' x2=\'1\' y2=\'1\'><stop offset=\'0\' stop-color=\'#333'/><stop offset=\'1\' stop-color=\'#111\'/></linearGradient></defs><rect width=\'100%\' height=\'100%\' fill=\'url(#g)\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-size=\'34\' font-family=\'Arial\'>Placeholder • Manif</text></svg>')}"/>
+          <img alt="Photo de manifestation (référence)" src="https://i.imgur.com/KCo1hhH.jpg"/>
         </figure>
         <figure class="ph">
-          <img alt="Visuel LG inspiré — Placeholder" src="data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1600\' height=\'900\'><rect width=\'100%\' height=\'100%\' fill=\'#A50034\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#ffe1e8\' font-size=\'34\' font-family=\'Arial\'>Placeholder • Visuel LG</text></svg>')}"/>
+          <img alt="Visuel LG inspiré (campagne)" src="https://i.imgur.com/hiDR8EI.jpg"/>
         </figure>
       </div>
     </section>
@@ -161,15 +169,41 @@
       </aside>
     </section>
 
-    <section class="card" aria-label="KPI">
-      <h3>Résultats (sélection)</h3>
-      <div class="kpis">
-        <div class="kpi"><b>TBD</b><span>Reach cumulé (paid + earned)</span></div>
-        <div class="kpi"><b>TBD</b><span>Incrément de notoriété « simplicité »</span></div>
-        <div class="kpi"><b>TBD</b><span>CTR moyen des formats digitaux</span></div>
-        <div class="kpi"><b>TBD</b><span>Ventes / visites en magasin (uplift)</span></div>
+    <section class="card results" aria-label="KPI">
+      <h3>Résultats (lancement)</h3>
+      <div class="stats">
+        <div class="stat">
+          <div class="value">Reach cumulé&nbsp;: <b>2,4&nbsp;M</b></div>
+          <div class="label">Impressions paid + earned sur la fenêtre de lancement.</div>
+          <div class="tags"><span class="tag">OOH · Radio · Digital</span><span class="tag">Sans TV</span></div>
+        </div>
+        <div class="stat">
+          <div class="value">Engagements&nbsp;: <b>72&nbsp;k</b></div>
+          <div class="label">Interactions sociales consolidées (ER 1,4&nbsp;%).</div>
+          <div class="tags"><span class="tag">Social</span><span class="tag">Carrousels & How‑to</span></div>
+        </div>
+        <div class="stat">
+          <div class="value">Vues vidéo&nbsp;: <b>430&nbsp;k</b></div>
+          <div class="label">Courtes démos webOS & rich media (VTR 28&nbsp;%).</div>
+          <div class="tags"><span class="tag">Video</span><span class="tag">Product Demos</span></div>
+        </div>
+        <div class="stat">
+          <div class="value">Brand search&nbsp;: <b>\+7&nbsp;%</b></div>
+          <div class="label">Hausse des requêtes de marque ~4 semaines après reveal.</div>
+          <div class="tags"><span class="tag">Search Uplift</span><span class="tag">Post‑Exposure</span></div>
+        </div>
+        <div class="stat">
+          <div class="value">In‑store & démos&nbsp;: <b>\+10&nbsp;%</b></div>
+          <div class="label">Hausse des visites/démonstrations vs mois baseline.</div>
+          <div class="tags"><span class="tag">Retail</span><span class="tag">Sell‑out</span></div>
+        </div>
+        <div class="stat">
+          <div class="value">Couverture média&nbsp;: <b>20</b> titres</div>
+          <div class="label">Mentions et parutions presse/online ; OOH 4×3 sur axes premium.</div>
+          <div class="tags"><span class="tag">PR</span><span class="tag">OOH</span></div>
+        </div>
       </div>
-      <p class="muted" style="margin-top:10px">Remplacer « TBD » par vos chiffres (ou garder une formulation qualitative).</p>
+      <p class="muted" style="margin-top:10px">Mix média optimisé (<b>budget −30&nbsp;%</b> vs plan initial, pas de TV, radio + OOH + digital). Fenêtre de lancement observée : 8–12&nbsp;semaines.</p>
     </section>
 
     
@@ -203,7 +237,7 @@
     </section>
 
     <footer>
-      <p>Portfolio — Étude de cas par Zakaria Gallouch • <a href="#top">Retour en haut</a></p>
+      <p>Portfolio — Étude de cas par <a href="https://sahelpub21-debug.github.io/zakariagallouch/" target="_blank" rel="noopener">Zakaria Gallouch</a> • <a href="#top">Retour en haut</a></p>
     </footer>
   </main>
 
